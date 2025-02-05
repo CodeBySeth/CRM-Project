@@ -16,16 +16,9 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@CrossOrigin
-@Entity
-@Table(name="customers")
-@Getter
-@Setter
-@NoArgsConstructor
-public class Employee {
+public class Contact {
 
-
-    public Employee(String fName, String lName, String addr, String postal, String phone, Division div) {
+    public Contact(String fName, String lName, String addr, String postal, String phone, Division div) {
         this.firstName = fName;
         this.lastName = lName;
         this.address = addr;
@@ -53,9 +46,6 @@ public class Employee {
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "employment_year", nullable = false)
-    private String employment_year;
-
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
@@ -64,14 +54,6 @@ public class Employee {
     @UpdateTimestamp
     private Date last_update;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Set<Customer> customers = new HashSet<>();
-
-    public void add(Customer div) {
-        this.setCustomer(customer);
-    }
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contact")
+    private Set<Contact> contacts = new HashSet<>();
 }

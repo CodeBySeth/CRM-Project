@@ -63,7 +63,7 @@ public class Customer {
     @JoinColumn(name = "division_id")
     private Division division;*/
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Set<Employee> employees = new HashSet<>();
 
     public void add(Employee div) {
