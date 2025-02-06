@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class Contact {
 
-    public Contact(String fName, String lName, String addr, String postal, String phone, Division div) {
+    public Contact(String fName, String lName, String addr, String postal, String phone) {
         this.firstName = fName;
         this.lastName = lName;
         this.address = addr;
