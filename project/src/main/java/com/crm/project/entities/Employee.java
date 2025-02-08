@@ -25,9 +25,10 @@ import java.util.Set;
 public class Employee {
 
 
-    public Employee(String fName, String lName, String addr, String postal, String phone) {
+    public Employee(String fName, String lName, String addr, String postal, String phone, String email) {
         this.firstName = fName;
         this.lastName = lName;
+        this.email = email;
         this.address = addr;
         this.postal_code = postal;
         this.phone = phone;
@@ -52,6 +53,9 @@ public class Employee {
 
     @Column(name = "phone", nullable = false)
     private String phone;
+
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @Column(name = "employment_year", nullable = false)
     private String employment_year;
