@@ -23,7 +23,7 @@ import java.util.Set;
 public class Customer {
 
 
-    public Customer(String fName, String lName, String addr, String postal, String phone, Division div) {
+    public Customer(String fName, String lName, String addr, String postal, String phone) {
         this.firstName = fName;
         this.lastName = lName;
         this.address = addr;
