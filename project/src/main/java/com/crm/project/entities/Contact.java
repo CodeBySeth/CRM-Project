@@ -1,59 +1,51 @@
 package com.crm.project.entities;
 
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.bytebuddy.implementation.bytecode.Division;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import java.util.Date;
 
-
-import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
-
+@Document(collection = "contacts") // Define MongoDB collection name
+@Getter
+@Setter
+@NoArgsConstructor
 public class Contact {
 
-    public Contact(String fName, String lName, String addr, String postal, String phone) {
-        this.firstName = fName;
-        this.lastName = lName;
-        this.address = addr;
-        this.postal_code = postal;
+    public Contact(String firstName, String lastName, String address, String postalCode, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postalCode = postalCode;
         this.phone = phone;
+        this.createDate = new Date();
+        this.lastUpdate = new Date();
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id", nullable = false)
-    private Long id;
+    private String id; // MongoDB uses String IDs (ObjectId)
 
-    @Column(name = "customer_first_name", nullable = false)
+    @Field(name = "customer_first_name")
     private String firstName;
 
-    @Column(name = "customer_last_name", nullable = false)
+    @Field(name = "customer_last_name")
     private String lastName;
 
-    @Column(name = "address", nullable = false)
+    @Field(name = "address")
     private String address;
 
-    @Column(name = "postal_code", nullable = false)
-    private String postal_code;
+    @Field(name = "postal_code")
+    private String postalCode;
 
-    @Column(name = "phone", nullable = false)
+    @Field(name = "phone")
     private String phone;
 
-    @Column(name = "create_date")
-    @CreationTimestamp
-    private Date create_date;
+    @Field(name = "create_date")
+    private Date createDate;
 
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private Date last_update;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contact")
-    private Set<Contact> contacts = new HashSet<>();
+    @Field(name = "last_update")
+    private Date lastUpdate;
 }

@@ -1,10 +1,10 @@
 package com.crm.project.dao;
 
 import com.crm.project.entities.Employee;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-@CrossOrigin
-public interface EmployeeRepo extends JpaRepository<Employee, Long>{
+@Repository
+public interface EmployeeRepo extends MongoRepository<Employee, Long>{
     
 }
