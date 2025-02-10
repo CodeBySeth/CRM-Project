@@ -1,46 +1,43 @@
 package com.crm.project.entities;
 
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.bytebuddy.implementation.bytecode.Division;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import java.util.Date;
 
-
-import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+@Document(collection = "issues") // MongoDB collection name
+@Getter
+@Setter
+@NoArgsConstructor
 public class Issues {
-    public Issues(String issue_n, String desc, int issue_lvl) {
-        this.issue_name = issue_n;
-        this.description = desc;
-        this.issue_level = issue_lvl;
+
+    public Issues(String issueName, String description, int issueLevel) {
+        this.issueName = issueName;
+        this.description = description;
+        this.issueLevel = issueLevel;
+        this.createDate = new Date();
+        this.lastUpdate = new Date();
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id", nullable = false)
-    private Long id;
+    private String id; // MongoDB uses String IDs (ObjectId)
 
-    @Column(name = "issue_name")
-    private String issue_name;
+    @Field(name = "issue_name")
+    private String issueName;
 
-    @Column(name = "description")
+    @Field(name = "description")
     private String description;
 
-    @Column(name = "issue_level")
-    private int issue_level;
+    @Field(name = "issue_level")
+    private int issueLevel;
 
-    @Column(name = "create_date")
-    @CreationTimestamp
-    private Date create_date;
+    @Field(name = "create_date")
+    private Date createDate;
 
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private Date last_update;
+    @Field(name = "last_update")
+    private Date lastUpdate;
 }

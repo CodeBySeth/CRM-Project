@@ -1,8 +1,10 @@
 package com.crm.project.dao;
 
-import com.crm.project.entities.Customer;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CustomerRepo extends JpaRepository<Customer, Long>{
-    
+import com.crm.project.entities.Customer;
+
+@Repository
+public interface CustomerRepo extends MongoRepository<Customer, String> {
 }
