@@ -9,16 +9,16 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "issues") // MongoDB collection name
+@Document(collection = "sales") // MongoDB collection name
 @Getter
 @Setter
 @NoArgsConstructor
-public class Issues {
+public class Sales {
 
-    public Issues(String issueName, String description, int issueLevel) {
-        this.issueName = issueName;
+    public Sales(String salesName, String description, int salesLevel) {
+        this.salesName = salesName;
         this.description = description;
-        this.issueLevel = issueLevel;
+        this.salesLevel = salesLevel;
         this.createDate = new Date();
         this.lastUpdate = new Date();
     }
@@ -26,14 +26,14 @@ public class Issues {
     @Id
     private String id; // MongoDB uses String IDs (ObjectId)
 
-    @Field(name = "issue_name")
-    private String issueName;
+    @Field(name = "sales_name")
+    private String salesName;
 
     @Field(name = "description")
     private String description;
 
-    @Field(name = "issue_level")
-    private int issueLevel;
+    @Field(name = "sales_level")
+    private int salesLevel;
 
     @Field(name = "create_date")
     private Date createDate;
