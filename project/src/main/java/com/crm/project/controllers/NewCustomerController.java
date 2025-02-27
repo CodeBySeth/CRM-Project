@@ -1,15 +1,22 @@
 package com.crm.project.controllers;
 
 import com.crm.project.entities.Customer;
+
+import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
+
 import com.crm.project.controllers.services.NewCustomer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
+
 public class NewCustomerController {
 
     @Autowired
@@ -27,7 +34,7 @@ public class NewCustomerController {
     }
 
     // Get all users from database
-    @GetMapping
+    @GetMapping("/users")
     public List<Customer> getUsers() {
         return userService.getAllUsers();
     }
