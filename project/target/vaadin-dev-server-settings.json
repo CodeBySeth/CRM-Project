@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/./frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/./frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\Seth\\OneDrive\\Documents\\GitHub\\CRM\\project\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\Seth\\OneDrive\\Documents\\GitHub\\CRM\\project\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/src/main/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/src/main/dev-bundle/config",
+  "jarResourcesFolder": "C:/Users/Seth/OneDrive/Documents/GitHub/CRM/project/./frontend/generated/jar-resources",
+  "themeName": "my-app",
+  "clientServiceWorkerSource": "C:\\Users\\Seth\\OneDrive\\Documents\\GitHub\\CRM\\project\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
